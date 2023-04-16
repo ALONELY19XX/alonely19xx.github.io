@@ -8,13 +8,17 @@ export interface Props {
 const { name, size, cls } = Astro.props
 
 const DEFAULT_SIZE = 32
+
+const { default: inlinedSvg } = await import(`/assets/${name}.svg?raw`)
+console.log(inlinedSvg)
 ---
 
 <div class="overflow-hidden w-fit inline-block" class:list={[cls]}>
-   <img
+   <!-- <img
       src={`/assets/${name}.svg`}
       width={size ?? DEFAULT_SIZE}
       height={size ?? DEFAULT_SIZE}
       alt="xyz"
-   />
+   /> -->
+   <Fragment set:html={inlinedSvg} />
 </div>

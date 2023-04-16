@@ -7,15 +7,29 @@ const { percentProgress } = Astro.props
 ---
 
 <div class="h-2 flex-1 bar-bg rounded-md">
-   <div
-      style={{ width: percentProgress }}
-      class="bg-gradient-to-tr from-blue-400 to-green-400 p-0.5 h-full rounded-md"
-   >
+   <div style={{ width: percentProgress }} class="h-full">
+      <div
+         class="rating-bar bg-gradient-to-tr from-blue-400 to-green-400 p-0.5 h-full rounded-md"
+      >
+      </div>
    </div>
 </div>
 
 <style>
    .bar-bg {
       background-color: rgba(0, 0, 0, 0.3);
+   }
+   .rating-bar {
+      transition: width ease-in;
+      animation: grow 1s;
+   }
+
+   @keyframes grow {
+      0% {
+         width: 0;
+      }
+      100% {
+         width: 100%;
+      }
    }
 </style>

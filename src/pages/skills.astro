@@ -1,5 +1,6 @@
 ---
-import Icon from '../components/Icon.astro'
+// import Icon from '../components/Icon.astro'
+import { Icon } from 'astro-icon'
 import PageLayout from '../layouts/PageLayout.astro'
 import RatingBar from '../components/RatingBar.astro'
 
@@ -49,7 +50,10 @@ const learning = [
             skills.map((skill) => {
                return (
                   <div class="flex items-center gap-x-4">
-                     <Icon name={skill.icon} />
+                     <Icon
+                        name={skill.icon}
+                        style={{ width: 32, height: 32 }}
+                     />
                      <span class="text-lg w-24 text-white">{skill.name}</span>
                      <RatingBar percentProgress={skill.rating} />
                   </div>
@@ -70,7 +74,7 @@ const learning = [
             experinceWith.map((tech) => {
                return (
                   <div class="flex flex-col justify-center items-center">
-                     <Icon size={64} name={tech.icon} />
+                     <Icon style={{ width: 64, height: 64 }} name={tech.icon} />
                      <span class="text-white inline-block mt-2 text-center">
                         {tech.name}
                      </span>
