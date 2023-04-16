@@ -1,0 +1,46 @@
+---
+const nav = [
+   { label: 'Home', href: '/' },
+   { label: 'Blog', href: '/blog' },
+   { label: 'Career', href: '/career' },
+   { label: 'Skills', href: '/skills' },
+]
+
+export interface Props {
+   active: number
+}
+
+const { active } = Astro.props
+---
+
+<header class="page-header w-screen p-3 text-lg fixed top-0">
+   <nav class="md:mx-auto md:w-fit max-sm: px-1">
+      <ul
+         class="md:inline-flex max-sm:flex max-sm:w-full max-sm:justify-around mx-auto md:gap-x-8"
+      >
+         {
+            nav.map((n, i) => (
+               <li
+                  class:list={[
+                     'px-2',
+                     {
+                        'bg-gradient-to-r from-blue-600 to-purple-600  rounded ':
+                           i === active,
+                     },
+                  ]}
+               >
+                  <a href={n.href}>{n.label}</a>
+               </li>
+            ))
+         }
+      </ul>
+   </nav>
+</header>
+
+<style>
+   .page-header {
+      color: var(--text-color);
+      /* background-color: var(--bg-color); */
+      backdrop-filter: blur(20px);
+   }
+</style>

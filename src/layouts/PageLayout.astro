@@ -1,0 +1,45 @@
+---
+import Header from '../components/Header.astro'
+
+export interface Props {
+   title: string
+   active: number
+}
+
+const { title, active } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width" />
+      <meta name="generator" content={Astro.generator} />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <title>{title}</title>
+   </head>
+   <body class="pt-[65px]">
+      <Header active={active} />
+      <main class="md:w-[500px] mx-auto">
+         <slot />
+      </main>
+   </body>
+
+   <style is:global>
+      :root {
+         --bg-color: #1e1e2e;
+         --caret-color: #fae3b0;
+         --main-color: #abe9b3;
+         --sub-color: #575268;
+         --sub-alt-color: #292739;
+         --text-color: #d9e0ee;
+         --error-color: #f28fad;
+         --error-extra-color: #e8a2af;
+         --colorful-error-color: #f28fad;
+         --colorful-error-extra-color: #e8a2af;
+      }
+      body {
+         background-color: var(--bg-color);
+      }
+   </style>
+</html>

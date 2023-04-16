@@ -1,0 +1,105 @@
+---
+import Icon from '../components/Icon.astro'
+import PageLayout from '../layouts/PageLayout.astro'
+import RatingBar from '../components/RatingBar.astro'
+
+const skills = [
+   { icon: 'javascript', name: 'JavaScript', rating: '90%' },
+   { icon: 'typescript', name: 'TypeScript', rating: '80%' },
+   { icon: 'vue', name: 'Vue', rating: '90%' },
+   { icon: 'nuxt', name: 'Nuxt', rating: '80%' },
+   { icon: 'react', name: 'React', rating: '55%' },
+   { icon: 'css', name: 'CSS', rating: '80%' },
+   { icon: 'html', name: 'HTML', rating: '80%' },
+   { icon: 'git', name: 'Git', rating: '75%' },
+   { icon: 'node', name: 'Node', rating: '70%' },
+   { icon: 'postgres', name: 'Postgres', rating: '50%' },
+   { icon: 'jest', name: 'Jest', rating: '75%' },
+   { icon: 'gql', name: 'GraphQL', rating: '75%' },
+].sort((a, b) => b.rating.localeCompare(a.rating))
+
+const experinceWith = [
+   { icon: 'c', name: 'C' },
+   { icon: 'cpp', name: 'C++' },
+   { icon: 'cs', name: 'C#' },
+   { icon: 'unity', name: 'Unity' },
+   { icon: 'python', name: 'Python' },
+]
+
+const learning = [
+   {
+      icon: 'crab-language',
+      name: 'The certain Crab Language 🦀',
+      cls: 'blur-[3px]',
+   },
+   { icon: 'docker', name: 'Docker' },
+   { icon: 'unreal', name: 'Unreal Engine' },
+]
+---
+
+<PageLayout active={3} title="Skills">
+   <section class="px-8 pt-4 md:px-4">
+      <h1
+         class="inline-block mx-auto text-transparent bg-clip-text mb-5 text-2xl font-extrabold bg-gradient-to-r from-blue-400 to-green-400"
+      >
+         My Main Skills
+      </h1>
+      <div class="flex flex-col gap-y-3">
+         {
+            skills.map((skill) => {
+               return (
+                  <div class="flex items-center gap-x-4">
+                     <Icon name={skill.icon} />
+                     <span class="text-lg w-24 text-white">{skill.name}</span>
+                     <RatingBar percentProgress={skill.rating} />
+                  </div>
+               )
+            })
+         }
+      </div>
+   </section>
+   <hr class="border-gray-700 my-6" />
+   <section class="px-8 md:px-4">
+      <h3
+         class="inline-block mx-auto text-transparent bg-clip-text mb-5 text-xl font-bold bg-gradient-to-r from-blue-400 to-green-400"
+      >
+         Prior Experience with
+      </h3>
+      <div class="grid grid-cols-3 md:grid-cols-5 gap-8">
+         {
+            experinceWith.map((tech) => {
+               return (
+                  <div class="flex flex-col justify-center items-center">
+                     <Icon size={64} name={tech.icon} />
+                     <span class="text-white inline-block mt-2 text-center">
+                        {tech.name}
+                     </span>
+                  </div>
+               )
+            })
+         }
+      </div>
+   </section>
+   <hr class="border-gray-700 my-6" />
+   <section class="mb-6 px-8 md:px-4">
+      <h3
+         class="inline-block mx-auto text-transparent bg-clip-text mb-5 text-xl font-bold bg-gradient-to-r from-blue-400 to-green-400"
+      >
+         Currently Learning
+      </h3>
+      <div class="grid grid-cols-3 gap-2">
+         {
+            learning.map((tech) => {
+               return (
+                  <div class="flex flex-col justify-start items-center">
+                     <Icon size={64} name={tech.icon} cls={tech.cls} />
+                     <span class="text-white inline-block mt-2 text-center">
+                        {tech.name}
+                     </span>
+                  </div>
+               )
+            })
+         }
+      </div>
+   </section>
+</PageLayout>

@@ -1,0 +1,47 @@
+---
+import CareerNode from '../components/CareerNode.astro'
+import PageLayout from '../layouts/PageLayout.astro'
+---
+
+<PageLayout title="Career" active={2}>
+   <div class="px-5">
+      <h1
+         class="hb inline-block mx-auto text-transparent bg-clip-text mb-5 text-2xl font-extrabold bg-gradient-to-r from-blue-400 to-green-400"
+      >
+         My Developer Journey
+      </h1>
+      <CareerNode>
+         <span class="inline-block text-xs pb-2">Employed since 2020</span>
+         <h1 class="text-2xl font-bold mb-1">
+            <span class="bg-blue-700 rounded">🏢</span> North 47 GmbH
+         </h1>
+         <h3 class="font-bold mb-2">Frontend Web Developer</h3>
+         <p>
+            It started with a student internship and continued with the
+            employment as a fully fletched frontend web developer. During my
+            time at N47 I worked with a variety of technologies and helped
+            companies in germany and swizuerland to digitalize their daily
+            business.
+         </p>
+      </CareerNode>
+      <CareerNode>
+         <span class="inline-block text-xs pb-2">Graduated 2022</span>
+         <h1 class="text-2xl font-bold mb-1">
+            <span class="bg-blue-300 rounded">👨‍🎓</span> University of Konstanz
+         </h1>
+         <h3 class="font-bold mb-2">Computer Science (Bachelor of Science)</h3>
+         <p>
+            Studied with the focus and passion for Computer Graphics in the
+            Department for Visual Computing. I graduated with my Bachelor Thesis
+            "The Visualization of Animal Behavior Experiments in Virtual
+            Reality", made in Unity.
+         </p>
+      </CareerNode>
+   </div>
+</PageLayout>
+
+<!-- <style>
+   .hb {
+      text-shadow: 0px 0px 1px cyan;
+   }
+</style> -->

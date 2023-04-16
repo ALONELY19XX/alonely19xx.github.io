@@ -1,0 +1,20 @@
+---
+export interface Props {
+   name: string
+   size?: number
+   cls?: string
+}
+
+const { name, size, cls } = Astro.props
+
+const DEFAULT_SIZE = 32
+---
+
+<div class="overflow-hidden w-fit inline-block" class:list={[cls]}>
+   <img
+      src={`/assets/${name}.svg`}
+      width={size ?? DEFAULT_SIZE}
+      height={size ?? DEFAULT_SIZE}
+      alt="xyz"
+   />
+</div>
